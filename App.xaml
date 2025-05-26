@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="AppVitaSangue.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AppVitaSangue">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Estilos Globais  -->
+            <Style x:Key="CamposText" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="#DEE7E7" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="PlaceholderColor" Value="#4D4D4D" />
+            </Style>
+
+            <Style x:Key="InfoLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            </Style>
+
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#FFFFFF" />
+                <Setter Property="TextColor" Value="#77181E" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="OpenSans-Bold" />
+                <Setter Property="TextTransform" Value="Uppercase" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#A92727" />
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="OpenSans-Bold" />
+                <Setter Property="TextTransform" Value="Uppercase" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

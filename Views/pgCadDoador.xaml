@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppVitaSangue.Views.pgCadDoador"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Cadastro de Doador"
+    BackgroundColor="#F1F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!--  Formulário  -->
+            <VerticalStackLayout Padding="0,10" Spacing="12">
+                <!--  Grupo Nome  -->
+                <Label FontSize="16" Text="Nome:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtNome"
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Seu nome completo"
+                    Style="{StaticResource CamposText}" />
+
+                <!--  Grupo CPF  -->
+                <Label FontSize="16" Text="CPF:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtCPF"
+                    ClearButtonVisibility="WhileEditing"
+                    Keyboard="Numeric"
+                    MaxLength="11"
+                    Placeholder="000.000.000-00"
+                    Style="{StaticResource CamposText}" />
+
+                <!--  Grupo Data Nascimento  -->
+                <Label FontSize="16" Text="Data de nascimento:" TextColor="#000000" />
+                <DatePicker x:Name="dpDataNasc" Format="dd/MM/yyyy" Style="{StaticResource CamposText}" />
+
+                <!--  Grupo Tipo Sanguíneo  -->
+                <Label FontSize="16" Text="Tipo sanguíneo:" TextColor="#000000" />
+                <Picker
+                    x:Name="pckrTipoSangue"
+                    Title="Selecione seu tipo"
+                    BackgroundColor="#DEE7E7"
+                    HeightRequest="60"
+                    TextColor="Black">
+                    <Picker.Items>
+                        <x:String>A+</x:String>
+                        <x:String>A-</x:String>
+                        <x:String>B+</x:String>
+                        <x:String>B-</x:String>
+                        <x:String>AB+</x:String>
+                        <x:String>AB-</x:String>
+                        <x:String>O+</x:String>
+                        <x:String>O-</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label FontSize="16" Text="E-mail:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtEmail"
+                    ClearButtonVisibility="WhileEditing"
+                    Keyboard="Email"
+                    Placeholder="seu@email.com"
+                    Style="{StaticResource CamposText}" />
+                <Label FontSize="16" Text="Telefone:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtTelefone"
+                    ClearButtonVisibility="WhileEditing"
+                    Keyboard="Telephone"
+                    MaxLength="11"
+                    Placeholder="(00) 00000-0000"
+                    Style="{StaticResource CamposText}" />
+
+                <!--  Grupo Endereço  -->
+                <Label FontSize="16" Text="Endereço:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtEndereco"
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Rua, número, complemento"
+                    Style="{StaticResource CamposText}" />
+
+                <!--  Grupo Cidade  -->
+                <Label FontSize="16" Text="Cidade:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtCidade"
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Sua cidade"
+                    Style="{StaticResource CamposText}" />
+
+                <Label FontSize="16" Text="Senha:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtSenha"
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Informe uma senha"
+                    Style="{StaticResource CamposText}" />
+
+                <Button
+                    Margin="0,20"
+                    Clicked="btnAdicionar_Clicked"
+                    Style="{StaticResource SecondaryButton}"
+                    Text="Cadastrar" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppVitaSangue.Views.pgPerfil"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Meu Perfil"
+    BackgroundColor="#F1F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="20">
+
+            <!--  Cabeçalho do Perfil  -->
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                <!--  Foto de Perfil  -->
+                <Frame
+                    Padding="0"
+                    BackgroundColor="LightGray"
+                    CornerRadius="50"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                    <Image
+                        x:Name="imgPerfil"
+                        Aspect="AspectFill"
+                        HeightRequest="95"
+                        WidthRequest="95" />
+                </Frame>
+
+                <!--  Informações Básicas  -->
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label
+                        x:Name="lblNome"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        TextColor="#000000" />
+
+                    <Label x:Name="lblTipoSanguineo" FontSize="14" TextColor="#77181E" />
+                    <Label x:Name="lblCidade" FontSize="14" TextColor="#000000" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!--  Botão Editar Perfil  -->
+            <Button
+                Margin="0,20"
+                BackgroundColor="#A92727"
+                Clicked="btnEditarPerfil_Clicked"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                FontFamily="OpenSans-Bold"
+                FontSize="20"
+                HeightRequest="50"
+                Text="Editar perfil"
+                TextColor="#FFFFFF" />
+
+            <!--  Seção de Histórico de Doações  -->
+            <Frame Padding="15" BorderColor="#EEEEEE" CornerRadius="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="Histórico de Doações"
+                        TextColor="Black" />
+
+                    <CollectionView x:Name="cvHistoricoDoacoes" EmptyView="Nenhuma doação registrada" ItemsLayout="VerticalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="10" BackgroundColor="#F9F9F9" CornerRadius="5">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label FontSize="14" Text="{Binding DataDoacao, StringFormat='{0:dd/MM/yyyy}'}" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="14"
+                                            HorizontalOptions="End"
+                                            Text="{Binding LocalDoacao}" />
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

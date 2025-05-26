@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppVitaSangue.Views.pgLogin"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Entrar"
+    BackgroundColor="#F1F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    CornerRadius="100"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    WidthRequest="200">
+
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="110"
+                        Source="doar2.png"
+                        WidthRequest="110" />
+                </Frame>
+
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="OpenSans-Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Text="VitaSangue"
+                    TextColor="#77181E" />
+            </VerticalStackLayout>
+
+            <!--  Formulário  -->
+            <VerticalStackLayout Padding="0,10" Spacing="12">
+                <Label FontSize="16" Text="CPF:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtCPF"
+                    ClearButtonVisibility="WhileEditing"
+                    Keyboard="Numeric"
+                    MaxLength="11"
+                    Placeholder="000.000.000-00"
+                    Style="{StaticResource CamposText}" />
+
+                <Label FontSize="16" Text="Senha:" TextColor="#000000" />
+                <Entry
+                    x:Name="txtSenha"
+                    ClearButtonVisibility="WhileEditing"
+                    IsPassword="True"
+                    Placeholder="Sua senha"
+                    Style="{StaticResource CamposText}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="cbxMostrarSenha" CheckedChanged="cbxMostrarSenha_CheckedChanged" Color="Blue" />
+                    <Label
+                        HorizontalTextAlignment="Start"
+                        Text="Mostrar senha"
+                        TextColor="#000000"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapMostrarSenha_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <Button
+                    Margin="0,20"
+                    Clicked="btnEntrar_Clicked"
+                    Style="{StaticResource SecondaryButton}"
+                    Text="Entrar" />
+
+                <Label HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Não possui uma conta? " TextColor="#000000" />
+                            <Span
+                                FontAttributes="Bold"
+                                Text="Cadastre-se"
+                                TextColor="#77181E"
+                                TextDecorations="Underline" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapCadastrar_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
