@@ -15,4 +15,9 @@ public partial class pgPrincipal : ContentPage
 
         Application.Current.MainPage.Navigation.PushAsync(new pgPerfil(doador));
     }
+
+    private void btnConfig_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage.Navigation.PushAsync(new pgConfig());
+    }
 }

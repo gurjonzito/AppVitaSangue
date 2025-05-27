@@ -10,22 +10,56 @@ public partial class pgLogin : ContentPage
 	{
 		InitializeComponent();
         doadorController = new DoadorController();
+        txtCPF.TextChanged += FormatCPF;
     }
 
-    private void btnEntrar_Clicked(object sender, EventArgs e)
+    private void FormatCPF(object sender, TextChangedEventArgs e)
     {
-        string cpf = txtCPF.Text;
+        var entry = sender as Entry;
+        var text = entry.Text;
+
+        text = new string(text.Where(char.IsDigit).ToArray());
+
+        if (text.Length > 3 && text.Length <= 6)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3)}";
+        }
+        else if (text.Length > 6 && text.Length <= 9)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6)}";
+        }
+        else if (text.Length > 9)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6, 3)}-{text.Substring(9)}";
+        }
+
+        if (entry.Text != text)
+        {
+            entry.Text = text;
+            entry.CursorPosition = text.Length;
+        }
+    }
+    private async void btnEntrar_Clicked(object sender, EventArgs e)
+    {
+        string cpf = new string(txtCPF.Text.Where(char.IsDigit).ToArray());
         string senha = txtSenha.Text;
+
+        if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senha))
+        {
+            await DisplayAlert("Atenção!", "Informe CPF e senha.", "OK");
+            return;
+        }
 
         if (doadorController.ValidarLogin(cpf, senha))
         {
             Preferences.Set("UsuarioLogado", cpf);
 
-            Application.Current.MainPage.Navigation.PushAsync(new pgPrincipal());
+            await Navigation.PushAsync(new pgPrincipal());
+
         }
         else
         {
-            DisplayAlert("Atenção!", "CPF ou senha inválidos.", "OK");
+            await DisplayAlert("Atenção!", "CPF ou senha inválidos.", "OK");
         }
     }
 
@@ -45,8 +79,8 @@ public partial class pgLogin : ContentPage
         MostrarSenha();
     }
 
-    private void tapCadastrar_Tapped(object sender, TappedEventArgs e)
+    private async void tapCadastrar_Tapped(object sender, TappedEventArgs e)
     {
-        Application.Current.MainPage.Navigation.PushAsync(new pgCadDoador());
+        await Navigation.PushAsync(new pgCadDoador());
     }
 }

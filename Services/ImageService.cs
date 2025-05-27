@@ -18,20 +18,38 @@
 
         public static string CopiarImagemDirApp(string sDiretorioImagem)
         {
+            if (sDiretorioImagem.StartsWith(AppContext.BaseDirectory))
+            {
+                return sDiretorioImagem;
+            }
+
             string diretorioDestino = "";
 
             if (!string.IsNullOrEmpty(sDiretorioImagem))
             {
-                string novoDiretorio = Path.Combine(AppContext.BaseDirectory, "Imagens");
-
-                if (!Directory.Exists(novoDiretorio))
+                try
                 {
-                    Directory.CreateDirectory(novoDiretorio);
+                    string novoDiretorio = Path.Combine(AppContext.BaseDirectory, "Imagens");
+
+                    if (!Directory.Exists(novoDiretorio))
+                    {
+                        Directory.CreateDirectory(novoDiretorio);
+                    }
+
+                    string nomeArquivo = Path.GetFileName(sDiretorioImagem);
+                    diretorioDestino = Path.Combine(novoDiretorio, nomeArquivo);
+
+                    if (!File.Exists(diretorioDestino) ||
+                        !sDiretorioImagem.Equals(diretorioDestino, StringComparison.OrdinalIgnoreCase))
+                    {
+                        File.Copy(sDiretorioImagem, diretorioDestino, true);
+                    }
                 }
-
-                diretorioDestino = Path.Combine(novoDiretorio, Path.GetFileName(sDiretorioImagem));
-
-                File.Copy(sDiretorioImagem, diretorioDestino, overwrite: true);
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao copiar imagem: {ex.Message}");
+                    return "";
+                }
             }
 
             return diretorioDestino;

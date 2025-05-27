@@ -3,22 +3,22 @@ using AppVitaSangue.Models;
 
 namespace AppVitaSangue.Views;
 
-public partial class pgPerfil : ContentPage
+public partial class pgConfig : ContentPage
 {
     Doador doadorVisualizar;
     private DoadorController doadorController;
 
-    public pgPerfil(Doador doador)
-    {
-        InitializeComponent();
+    public pgConfig()
+	{
+		InitializeComponent();
         doadorController = new DoadorController();
         ExibirDados();
-    }
+	}
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        ExibirDados(); 
+        ExibirDados();
     }
 
     private void ExibirDados()
@@ -29,8 +29,7 @@ public partial class pgPerfil : ContentPage
         if (doadorVisualizar != null)
         {
             lblNome.Text = doadorVisualizar.Nome;
-            lblTipoSanguineo.Text = doadorVisualizar.TipoSangue;
-            lblCidade.Text = doadorVisualizar.Cidade;
+            lblEmail.Text = doadorVisualizar.Email;
 
             if (!string.IsNullOrEmpty(doadorVisualizar.DirImagem))
             {
@@ -38,13 +37,38 @@ public partial class pgPerfil : ContentPage
             }
             else
             {
-                imgPerfil.Source = null; 
+                imgPerfil.Source = null;
             }
         }
     }
 
-    private void btnEditarPerfil_Clicked(object sender, EventArgs e)
+    private void EditarPerfil_Tapped(object sender, TappedEventArgs e)
     {
-        Navigation.PushAsync(new pgEditarPerfil());
+
+    }
+
+    private void Acessibilidade_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void Sobre_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void Privacidade_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void EncerrarConta_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void Sair_Tapped(object sender, TappedEventArgs e)
+    {
+
     }
 }

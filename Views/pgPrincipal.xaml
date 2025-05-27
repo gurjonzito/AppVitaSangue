@@ -6,5 +6,6 @@
     Title="pgPrincipal">
     <VerticalStackLayout>
         <Button Clicked="btnPerfil_Clicked" Text="Perfil" />
+        <Button Clicked="btnConfig_Clicked" Text="Config" />
     </VerticalStackLayout>
 </ContentPage>

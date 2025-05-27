@@ -41,7 +41,7 @@
                     x:Name="txtCPF"
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Numeric"
-                    MaxLength="11"
+                    MaxLength="14"
                     Placeholder="000.000.000-00"
                     Style="{StaticResource CamposText}" />
 

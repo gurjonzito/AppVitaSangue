@@ -10,10 +10,9 @@ public partial class pgEditarPerfil : ContentPage
     private DoadorController doadorController;
     private string sImagemSelecionada;
 
-    public pgEditarPerfil(Doador doador)
-	{
-		InitializeComponent();
-        doadorVisualizar = doador;
+    public pgEditarPerfil()
+    {
+        InitializeComponent();
         doadorController = new DoadorController();
         ExibirDados();
         AtualizarVisibilidadeBotoes();
@@ -56,8 +55,8 @@ public partial class pgEditarPerfil : ContentPage
 
     private void btnRemover_Clicked(object sender, EventArgs e)
     {
-        imgPerfil.Source = "";
-        sImagemSelecionada = "";
+        imgPerfil.Source = null;
+        sImagemSelecionada = null;
         AtualizarVisibilidadeBotoes();
     }
 
@@ -85,7 +84,7 @@ public partial class pgEditarPerfil : ContentPage
             if (resultado)
             {
                 await DisplayAlert("Sucesso", "Perfil atualizado com sucesso!", "OK");
-                await Navigation.PopAsync();
+                await Navigation.PopAsync(); 
             }
             else
             {

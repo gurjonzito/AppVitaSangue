@@ -11,12 +11,41 @@ public partial class pgCadDoador : ContentPage
 	{
 		InitializeComponent();
         doadorController = new DoadorController();
+        txtCPF.TextChanged += FormatCPF;
+
     }
 
-    private void btnAdicionar_Clicked(object sender, EventArgs e)
+    private void FormatCPF(object sender, TextChangedEventArgs e)
+    {
+        var entry = sender as Entry;
+        var text = entry.Text;
+
+        text = new string(text.Where(char.IsDigit).ToArray());
+
+        if (text.Length > 3 && text.Length <= 6)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3)}";
+        }
+        else if (text.Length > 6 && text.Length <= 9)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6)}";
+        }
+        else if (text.Length > 9)
+        {
+            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6, 3)}-{text.Substring(9)}";
+        }
+
+        if (entry.Text != text)
+        {
+            entry.Text = text;
+            entry.CursorPosition = text.Length;
+        }
+    }
+
+    private async void btnAdicionar_Clicked(object sender, EventArgs e)
     {
         string nome = txtNome.Text;
-        string cpf = txtCPF.Text;
+        string cpf = new string(txtCPF.Text.Where(char.IsDigit).ToArray());
         string dataNasc = dpDataNasc.Date.ToString("dd/MM/yyyy");
         string tipoSangue = pckrTipoSangue.SelectedItem?.ToString();
         string email = txtEmail.Text;
@@ -31,7 +60,7 @@ public partial class pgCadDoador : ContentPage
             || string.IsNullOrEmpty(endereco) || string.IsNullOrEmpty(cidade)
             || string.IsNullOrEmpty(senha))
         {
-            DisplayAlert(
+            await DisplayAlert(
                 "Atenção",
                 "Informe todos os dados corretamente.",
                 "OK");
@@ -56,7 +85,7 @@ public partial class pgCadDoador : ContentPage
 
         if (doadorController.Insert(doador))
         {
-            DisplayAlert(
+            await DisplayAlert(
                 "Informação",
                 "Registro salvo com sucesso!",
                 "OK");
@@ -70,9 +99,11 @@ public partial class pgCadDoador : ContentPage
             txtEndereco.Text = "";
             txtCidade.Text = "";
             txtSenha.Text = "";
+
+            await Navigation.PushAsync(new pgLogin());
         }
         else
-            DisplayAlert(
+            await DisplayAlert(
                 "Erro",
                 "Falha ao salvar o registro no banco de dados.",
                 "OK");
