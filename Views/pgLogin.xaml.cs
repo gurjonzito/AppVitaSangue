@@ -18,6 +18,9 @@ public partial class pgLogin : ContentPage
         var entry = sender as Entry;
         var text = entry.Text;
 
+        if (string.IsNullOrEmpty(text))
+            return;
+
         text = new string(text.Where(char.IsDigit).ToArray());
 
         if (text.Length > 3 && text.Length <= 6)
@@ -41,12 +44,15 @@ public partial class pgLogin : ContentPage
     }
     private async void btnEntrar_Clicked(object sender, EventArgs e)
     {
-        string cpf = new string(txtCPF.Text.Where(char.IsDigit).ToArray());
-        string senha = txtSenha.Text;
+        string cpf = string.IsNullOrEmpty(txtCPF.Text) ? string.Empty : new string(txtCPF.Text.Where(char.IsDigit).ToArray());
+        string senha = txtSenha.Text?.Trim();
 
         if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senha))
         {
-            await DisplayAlert("Atenção!", "Informe CPF e senha.", "OK");
+            await DisplayAlert(
+            "Atenção",
+            "Informe todos os dados corretamente.",
+            "OK");
             return;
         }
 

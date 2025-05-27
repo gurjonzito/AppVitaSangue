@@ -65,7 +65,7 @@
                     x:Name="txtTelefone"
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Telephone"
-                    MaxLength="11"
+                    MaxLength="15"
                     Placeholder="(00) 00000-0000"
                     Style="{StaticResource CamposText}" />
 

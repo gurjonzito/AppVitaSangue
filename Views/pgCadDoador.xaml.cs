@@ -12,6 +12,7 @@ public partial class pgCadDoador : ContentPage
 		InitializeComponent();
         doadorController = new DoadorController();
         txtCPF.TextChanged += FormatCPF;
+        txtTelefone.TextChanged += FormatTelefone;
 
     }
 
@@ -19,6 +20,9 @@ public partial class pgCadDoador : ContentPage
     {
         var entry = sender as Entry;
         var text = entry.Text;
+
+        if (string.IsNullOrEmpty(text))
+            return;
 
         text = new string(text.Where(char.IsDigit).ToArray());
 
@@ -41,18 +45,52 @@ public partial class pgCadDoador : ContentPage
             entry.CursorPosition = text.Length;
         }
     }
+    private void FormatTelefone(object sender, TextChangedEventArgs e)
+    {
+        var entry = sender as Entry;
+        var text = entry.Text;
+
+        if (string.IsNullOrEmpty(text))
+            return;
+
+        text = new string(text.Where(char.IsDigit).ToArray());
+
+        if (text.Length > 0 && text.Length <= 2)
+        {
+            text = $"({text}";
+        }
+        else if (text.Length > 2 && text.Length <= 7)
+        {
+            text = $"({text.Substring(0, 2)}) {text.Substring(2)}";
+        }
+        else if (text.Length > 7 && text.Length <= 11)
+        {
+            text = $"({text.Substring(0, 2)}) {text.Substring(2, 5)}-{text.Substring(7)}";
+        }
+        else if (text.Length > 11)
+        {
+            text = text.Substring(0, 11);
+            text = $"({text.Substring(0, 2)}) {text.Substring(2, 5)}-{text.Substring(7)}";
+        }
+
+        if (entry.Text != text)
+        {
+            entry.Text = text;
+            entry.CursorPosition = text.Length;
+        }
+    }
 
     private async void btnAdicionar_Clicked(object sender, EventArgs e)
     {
-        string nome = txtNome.Text;
-        string cpf = new string(txtCPF.Text.Where(char.IsDigit).ToArray());
+        string nome = txtNome.Text.Trim();
+        string cpf = string.IsNullOrEmpty(txtCPF.Text) ? "" : new string(txtCPF.Text.Where(char.IsDigit).ToArray());
         string dataNasc = dpDataNasc.Date.ToString("dd/MM/yyyy");
-        string tipoSangue = pckrTipoSangue.SelectedItem?.ToString();
-        string email = txtEmail.Text;
-        string telefone = txtTelefone.Text;
-        string endereco = txtEndereco.Text;
-        string cidade = txtCidade.Text;
-        string senha = txtSenha.Text;
+        string tipoSangue = pckrTipoSangue.SelectedItem?.ToString()?.Trim();
+        string email = txtEmail.Text.Trim();
+        string telefone = string.IsNullOrEmpty(txtTelefone.Text) ? "" : new string(txtTelefone.Text.Where(char.IsDigit).ToArray());
+        string endereco = txtEndereco.Text.Trim();
+        string cidade = txtCidade.Text.Trim();
+        string senha = txtSenha.Text.Trim();
 
         if (string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(cpf)
             || string.IsNullOrEmpty(dataNasc) || string.IsNullOrEmpty(tipoSangue)
