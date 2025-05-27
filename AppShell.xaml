@@ -4,12 +4,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AppVitaSangue"
-    Shell.FlyoutBehavior="Flyout"
+    xmlns:views="clr-namespace:AppVitaSangue.Views"
     Title="AppVitaSangue">
 
-    <ShellContent
+    <ShellContent 
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
+    <TabBar Route="PrincipalTabBar">
+        <ShellContent
+            Icon="home_icon.png"
+            ContentTemplate="{DataTemplate views:pgPrincipal}"
+            Route="pgPrincipal" />
+
+        <ShellContent
+            Icon="add_icon.png"
+            ContentTemplate="{DataTemplate views:pgCadDoacao}"
+            Route="pgCadDoacao" />
+        
+        <ShellContent
+            Icon="user_icon.png"
+            ContentTemplate="{DataTemplate views:pgPerfil}"
+            Route="pgCadDoacao" />
+
+        <ShellContent
+            Icon="config_icon.png"
+            ContentTemplate="{DataTemplate views:pgConfig}"
+            Route="pgConfig" />
+    </TabBar>
 </Shell>

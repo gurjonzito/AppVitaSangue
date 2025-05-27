@@ -27,6 +27,8 @@
                     Keyboard="Numeric"
                     MaxLength="14"
                     Placeholder="000.000.000-00"
+                    Completed="OnCPFCompleted"
+                    Unfocused="OnCPFUnfocused"
                     Style="{StaticResource CamposText}" />
 
                 <!--  Grupo Data Nascimento  -->
@@ -66,6 +68,8 @@
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Telephone"
                     MaxLength="15"
+                    Completed="OnTelefoneCompleted"
+                    Unfocused="OnTelefoneUnfocused"
                     Placeholder="(00) 00000-0000"
                     Style="{StaticResource CamposText}" />
 

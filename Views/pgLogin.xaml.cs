@@ -10,36 +10,38 @@ public partial class pgLogin : ContentPage
 	{
 		InitializeComponent();
         doadorController = new DoadorController();
-        txtCPF.TextChanged += FormatCPF;
     }
 
-    private void FormatCPF(object sender, TextChangedEventArgs e)
+    private void OnCPFCompleted(object sender, EventArgs e)
     {
-        var entry = sender as Entry;
-        var text = entry.Text;
+        FormatCPF();
+    }
 
-        if (string.IsNullOrEmpty(text))
-            return;
+    private void OnCPFUnfocused(object sender, FocusEventArgs e)
+    {
+        FormatCPF();
+    }
 
-        text = new string(text.Where(char.IsDigit).ToArray());
+    private void FormatCPF()
+    {
+        var text = txtCPF.Text ?? "";
+        string digitsOnly = new string(text.Where(char.IsDigit).ToArray());
 
-        if (text.Length > 3 && text.Length <= 6)
+        // Garante que não ultrapasse 11 dígitos
+        if (digitsOnly.Length > 11)
         {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3)}";
-        }
-        else if (text.Length > 6 && text.Length <= 9)
-        {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6)}";
-        }
-        else if (text.Length > 9)
-        {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6, 3)}-{text.Substring(9)}";
+            digitsOnly = digitsOnly.Substring(0, 11);
         }
 
-        if (entry.Text != text)
+        // Aplica formatação apenas se tiver 11 dígitos
+        if (digitsOnly.Length == 11)
         {
-            entry.Text = text;
-            entry.CursorPosition = text.Length;
+            txtCPF.Text = $"{digitsOnly.Substring(0, 3)}.{digitsOnly.Substring(3, 3)}.{digitsOnly.Substring(6, 3)}-{digitsOnly.Substring(9)}";
+        }
+        else
+        {
+            // Mantém apenas os dígitos (sem formatação incompleta)
+            txtCPF.Text = digitsOnly;
         }
     }
     private async void btnEntrar_Clicked(object sender, EventArgs e)
@@ -60,7 +62,7 @@ public partial class pgLogin : ContentPage
         {
             Preferences.Set("UsuarioLogado", cpf);
 
-            await Navigation.PushAsync(new pgPrincipal());
+            await Shell.Current.GoToAsync("//pgPrincipal");
 
         }
         else

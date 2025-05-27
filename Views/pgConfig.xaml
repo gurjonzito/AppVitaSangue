@@ -2,8 +2,10 @@
 <ContentPage
     x:Class="AppVitaSangue.Views.pgConfig"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    android:TabbedPage.ToolbarPlacement="Bottom"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="pgConfig"
+    Title="Configurações"
     BackgroundColor="#F1F4F4">
 
     <VerticalStackLayout HorizontalOptions="Center" Spacing="20" VerticalOptions="CenterAndExpand">

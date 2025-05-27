@@ -8,6 +8,9 @@ public partial class pgPerfil : ContentPage
     Doador doadorVisualizar;
     private DoadorController doadorController;
 
+    public pgPerfil() : this(null)
+    {
+    }
     public pgPerfil(Doador doador)
     {
         InitializeComponent();

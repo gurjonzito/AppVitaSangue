@@ -43,6 +43,8 @@
                     Keyboard="Numeric"
                     MaxLength="14"
                     Placeholder="000.000.000-00"
+                    Completed="OnCPFCompleted"
+                    Unfocused="OnCPFUnfocused"
                     Style="{StaticResource CamposText}" />
 
                 <Label FontSize="16" Text="Senha:" TextColor="#000000" />

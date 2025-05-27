@@ -11,73 +11,86 @@ public partial class pgCadDoador : ContentPage
 	{
 		InitializeComponent();
         doadorController = new DoadorController();
-        txtCPF.TextChanged += FormatCPF;
-        txtTelefone.TextChanged += FormatTelefone;
-
+    }
+    private void OnCPFCompleted(object sender, EventArgs e)
+    {
+        FormatCPF();
     }
 
-    private void FormatCPF(object sender, TextChangedEventArgs e)
+    private void OnCPFUnfocused(object sender, FocusEventArgs e)
     {
-        var entry = sender as Entry;
-        var text = entry.Text;
+        FormatCPF();
+    }
 
-        if (string.IsNullOrEmpty(text))
-            return;
+    private void FormatCPF()
+    {
+        var text = txtCPF.Text ?? "";
+        string digitsOnly = new string(text.Where(char.IsDigit).ToArray());
 
-        text = new string(text.Where(char.IsDigit).ToArray());
-
-        if (text.Length > 3 && text.Length <= 6)
+        // Garante que não ultrapasse 11 dígitos
+        if (digitsOnly.Length > 11)
         {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3)}";
-        }
-        else if (text.Length > 6 && text.Length <= 9)
-        {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6)}";
-        }
-        else if (text.Length > 9)
-        {
-            text = $"{text.Substring(0, 3)}.{text.Substring(3, 3)}.{text.Substring(6, 3)}-{text.Substring(9)}";
+            digitsOnly = digitsOnly.Substring(0, 11);
         }
 
-        if (entry.Text != text)
+        // Aplica formatação apenas se tiver 11 dígitos
+        if (digitsOnly.Length == 11)
         {
-            entry.Text = text;
-            entry.CursorPosition = text.Length;
+            txtCPF.Text = $"{digitsOnly.Substring(0, 3)}.{digitsOnly.Substring(3, 3)}.{digitsOnly.Substring(6, 3)}-{digitsOnly.Substring(9)}";
+        }
+        else
+        {
+            // Mantém apenas os dígitos (sem formatação incompleta)
+            txtCPF.Text = digitsOnly;
         }
     }
-    private void FormatTelefone(object sender, TextChangedEventArgs e)
+
+    private void OnTelefoneCompleted(object sender, EventArgs e)
     {
-        var entry = sender as Entry;
-        var text = entry.Text;
+        FormatTelefone();
+    }
 
-        if (string.IsNullOrEmpty(text))
-            return;
+    private void OnTelefoneUnfocused(object sender, FocusEventArgs e)
+    {
+        FormatTelefone();
+    }
 
-        text = new string(text.Where(char.IsDigit).ToArray());
+    // Método principal de formatação
+    private void FormatTelefone()
+    {
+        var text = txtTelefone.Text ?? "";
 
-        if (text.Length > 0 && text.Length <= 2)
+        // Remove tudo que não é dígito
+        string digitsOnly = new string(text.Where(char.IsDigit).ToArray());
+
+        // Limita a 11 caracteres (DDD + 9 dígitos)
+        if (digitsOnly.Length > 11)
         {
-            text = $"({text}";
-        }
-        else if (text.Length > 2 && text.Length <= 7)
-        {
-            text = $"({text.Substring(0, 2)}) {text.Substring(2)}";
-        }
-        else if (text.Length > 7 && text.Length <= 11)
-        {
-            text = $"({text.Substring(0, 2)}) {text.Substring(2, 5)}-{text.Substring(7)}";
-        }
-        else if (text.Length > 11)
-        {
-            text = text.Substring(0, 11);
-            text = $"({text.Substring(0, 2)}) {text.Substring(2, 5)}-{text.Substring(7)}";
+            digitsOnly = digitsOnly.Substring(0, 11);
         }
 
-        if (entry.Text != text)
+        // Aplica a formatação de acordo com o tamanho
+        string formatted = digitsOnly;
+
+        if (digitsOnly.Length == 11) // Celular com 9 dígitos
         {
-            entry.Text = text;
-            entry.CursorPosition = text.Length;
+            formatted = $"({digitsOnly.Substring(0, 2)}) {digitsOnly.Substring(2, 5)}-{digitsOnly.Substring(7)}";
         }
+        else if (digitsOnly.Length == 10) // Telefone fixo com 8 dígitos
+        {
+            formatted = $"({digitsOnly.Substring(0, 2)}) {digitsOnly.Substring(2, 4)}-{digitsOnly.Substring(6)}";
+        }
+        else if (digitsOnly.Length > 2)
+        {
+            formatted = $"({digitsOnly.Substring(0, 2)}) {digitsOnly.Substring(2)}";
+        }
+        else if (digitsOnly.Length > 0)
+        {
+            formatted = $"({digitsOnly}";
+        }
+
+        // Atualiza o texto formatado
+        txtTelefone.Text = formatted;
     }
 
     private async void btnAdicionar_Clicked(object sender, EventArgs e)

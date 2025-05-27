@@ -1,6 +1,4 @@
-﻿using AppVitaSangue.Views;
-
-namespace AppVitaSangue
+﻿namespace AppVitaSangue.Views
 {
     public partial class MainPage : ContentPage
     {
