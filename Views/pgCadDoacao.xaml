@@ -3,47 +3,55 @@
     x:Class="AppVitaSangue.Views.pgCadDoacao"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Cadastro de Doação"
-    BackgroundColor="#F1F4F4">
+    Title="Doar"
+    BackgroundColor="{AppThemeBinding Light=#F1F4F4, Dark=#1E1E1E}">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="2">
 
             <VerticalStackLayout HorizontalOptions="Center">
                 <Frame
-                 Padding="0"
-                 BackgroundColor="Transparent"
-                 BorderColor="Transparent"
-                 CornerRadius="100"
-                 HeightRequest="200"
-                 HorizontalOptions="Center"
-                 WidthRequest="200">
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    CornerRadius="100"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    WidthRequest="200">
                     <Image
-                     Aspect="AspectFit"
-                     HeightRequest="110"
-                     Source="doar.png"
-                     WidthRequest="110" />
+                        Aspect="AspectFit"
+                        HeightRequest="110"
+                        Source="doar.png"
+                        WidthRequest="110" />
                 </Frame>
             </VerticalStackLayout>
-            <!-- Formulário -->
-            <VerticalStackLayout Padding="0,10" Spacing="12">
-                <!-- Grupo Tipo Sanguíneo (apenas exibição) -->
-                <Label FontSize="16" Text="Tipo Sanguíneo:" TextColor="#000000" />
-                <Entry
-                x:Name="entTipoSanguineo"
-                IsReadOnly="True"
-                Style="{StaticResource CamposText}"
-                BackgroundColor="#DEE7E7"
-                TextColor="#333333"
-                Placeholder="Carregando..."/>
 
-                <!-- Grupo Hospital -->
-                <Label FontSize="16" Text="Hospital:" TextColor="#000000" />
+            <VerticalStackLayout Padding="0,10" Spacing="12">
+                <Label 
+                    FontSize="16" 
+                    Text="Tipo sanguíneo"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
+                <Entry
+                    x:Name="entTipoSanguineo"
+                    IsReadOnly="True"
+                    Style="{StaticResource CamposText}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                    TextColor="{AppThemeBinding Light=#333333, Dark=White}"
+                    Placeholder="Carregando..."
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"/>
+
+                <Label 
+                    FontSize="16" 
+                    Text="Hospital" 
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <Picker
                     x:Name="pckrHospital"
-                    BackgroundColor="#DEE7E7"
-                    HeightRequest="40"
-                    TextColor="Black">
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    TitleColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    HeightRequest="40">
                     <Picker.Items>
                         <x:String>Hospital do Amor, Bebedouro</x:String>
                         <x:String>Hospital do Amor, Barretos</x:String>
@@ -51,16 +59,26 @@
                     </Picker.Items>
                 </Picker>
 
-                <!-- Grupo Data da Doação -->
-                <Label FontSize="16" Text="Data da Doação:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Data da doação" 
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <DatePicker 
                     x:Name="dpDataDoacao" 
-                    Format="dd/MM/yyyy" 
+                    Format="dd/MM/yyyy"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
+
                 <Button
                     Margin="0,20"
                     Clicked="btnDoar_Clicked"
-                    Style="{StaticResource SecondaryButton}"
+                    BackgroundColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
                     Text="Doar" />
             </VerticalStackLayout>
         </VerticalStackLayout>

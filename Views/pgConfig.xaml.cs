@@ -48,9 +48,9 @@ public partial class pgConfig : ContentPage
 
     }
 
-    private void Acessibilidade_Tapped(object sender, TappedEventArgs e)
+    private async void Acessibilidade_Tapped(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushAsync(new pgAcessibilidade());
     }
 
     private void Sobre_Tapped(object sender, TappedEventArgs e)

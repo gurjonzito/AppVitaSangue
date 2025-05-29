@@ -1,0 +1,41 @@
+# Arquivos do Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pastas de compilação
+bin/
+obj/
+
+# Arquivos de cache do NuGet
+.nuget/
+packages/
+
+# Arquivos de saída do Roslyn (compilador .NET)
+*.exe
+*.dll
+*.pdb
+
+# Arquivos temporários
+*.cache
+*.log
+*.tmp
+*.TMP
+
+# Arquivos do ReSharper
+*.ReSharper
+*.[Rr]e[Ss]harper
+
+# Arquivos do Team City
+_TeamCity*
+
+# Arquivos do DotCover
+*.dotCover
+
+# Arquivos do JustMock
+*.jmconfig
+
+# Arquivos do Visual Studio Code
+.vscode/

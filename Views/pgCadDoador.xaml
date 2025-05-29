@@ -4,44 +4,67 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Cadastro de Doador"
-    BackgroundColor="#F1F4F4">
+    BackgroundColor="{AppThemeBinding Light=#F1F4F4, Dark=#1E1E1E}">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!--  Formulário  -->
             <VerticalStackLayout Padding="0,10" Spacing="12">
-                <!--  Grupo Nome  -->
-                <Label FontSize="16" Text="Nome:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Nome" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtNome"
                     ClearButtonVisibility="WhileEditing"
                     Placeholder="Seu nome completo"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
-                <!--  Grupo CPF  -->
-                <Label FontSize="16" Text="CPF:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="CPF" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtCPF"
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Numeric"
                     MaxLength="14"
                     Placeholder="000.000.000-00"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Completed="OnCPFCompleted"
                     Unfocused="OnCPFUnfocused"
                     Style="{StaticResource CamposText}" />
 
-                <!--  Grupo Data Nascimento  -->
-                <Label FontSize="16" Text="Data de nascimento:" TextColor="#000000" />
-                <DatePicker x:Name="dpDataNasc" Format="dd/MM/yyyy" Style="{StaticResource CamposText}" />
+                <Label 
+                    FontSize="16" 
+                    Text="Data de nascimento" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
+                <DatePicker 
+                    x:Name="dpDataNasc" 
+                    Format="dd/MM/yyyy" 
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                    Style="{StaticResource CamposText}" />
 
-                <!--  Grupo Tipo Sanguíneo  -->
-                <Label FontSize="16" Text="Tipo sanguíneo:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Tipo sanguíneo" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Picker
                     x:Name="pckrTipoSangue"
-                    BackgroundColor="#DEE7E7"
-                    HeightRequest="40"
-                    TextColor="Black">
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    TitleColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    HeightRequest="40">
                     <Picker.Items>
                         <x:String>A+</x:String>
                         <x:String>A-</x:String>
@@ -54,14 +77,26 @@
                     </Picker.Items>
                 </Picker>
 
-                <Label FontSize="16" Text="E-mail:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="E-mail" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtEmail"
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Email"
                     Placeholder="seu@email.com"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
-                <Label FontSize="16" Text="Telefone:" TextColor="#000000" />
+
+                <Label 
+                    FontSize="16" 
+                    Text="Telefone" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtTelefone"
                     ClearButtonVisibility="WhileEditing"
@@ -70,36 +105,62 @@
                     Completed="OnTelefoneCompleted"
                     Unfocused="OnTelefoneUnfocused"
                     Placeholder="(00) 00000-0000"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
-                <!--  Grupo Endereço  -->
-                <Label FontSize="16" Text="Endereço:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Endereço" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtEndereco"
                     ClearButtonVisibility="WhileEditing"
                     Placeholder="Rua, número, complemento"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
-                <!--  Grupo Cidade  -->
-                <Label FontSize="16" Text="Cidade:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Cidade" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtCidade"
                     ClearButtonVisibility="WhileEditing"
                     Placeholder="Sua cidade"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
-                <Label FontSize="16" Text="Senha:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Senha" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                    FontAttributes="Bold" />
                 <Entry
                     x:Name="txtSenha"
                     ClearButtonVisibility="WhileEditing"
                     Placeholder="Informe uma senha"
                     IsPassword="True"
+                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
                 <Button
                     Margin="0,20"
                     Clicked="btnAdicionar_Clicked"
-                    Style="{StaticResource SecondaryButton}"
+                    BackgroundColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
                     Text="Cadastrar" />
             </VerticalStackLayout>
         </VerticalStackLayout>

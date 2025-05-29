@@ -1,19 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="AppVitaSangue.Views.pgEditarPerfil"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Editar Perfil"
     Shell.TabBarIsVisible="False"
-    BackgroundColor="#F1F4F4">
+    BackgroundColor="{AppThemeBinding Light=#F1F4F4, Dark=#1E1E1E}">
 
     <ScrollView>
         <VerticalStackLayout Padding="15" Spacing="15">
 
             <Grid HorizontalOptions="Center">
-                <!--  Frame da Imagem  -->
                 <Frame
                     Padding="0"
-                    BackgroundColor="LightGray"
+                    BackgroundColor="{AppThemeBinding Light=LightGray, Dark=#333333}"
                     CornerRadius="75"
                     HeightRequest="150"
                     WidthRequest="150">
@@ -24,19 +24,18 @@
                         WidthRequest="145" />
                 </Frame>
 
-                <!--  Overlay de Ação  -->
                 <Frame
                     Padding="0"
-                    BackgroundColor="#80A92727"
+                    BackgroundColor="{AppThemeBinding Light=#80A92727, Dark=#80C53030}"
                     CornerRadius="75"
                     HeightRequest="150"
-                    IsVisible="{Binding Source={x:Reference imgPerfil}, Path=Source, Converter={StaticResource NullToVisibilityConverter}}"
+                    IsVisible="{Binding Source={x:Reference imgPerfil}, Path=Source}"
                     WidthRequest="150">
                     <VerticalStackLayout HorizontalOptions="Center" Spacing="10" VerticalOptions="Center">
 
                         <Button
                             x:Name="btnSelecionar"
-                            BackgroundColor="#A92727"
+                            BackgroundColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
                             Clicked="btnSelecionar_Clicked"
                             CornerRadius="20"
                             HeightRequest="40"
@@ -46,42 +45,79 @@
 
                         <Button
                             x:Name="btnRemover"
-                            BackgroundColor="White"
+                            BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                             Clicked="btnRemover_Clicked"
                             CornerRadius="20"
                             HeightRequest="40"
                             IsVisible="False"
                             Text="Remover"
-                            TextColor="#A92727"
+                            TextColor="{AppThemeBinding Light=#A92727, Dark=#FEB2B2}"
                             WidthRequest="120" />
                     </VerticalStackLayout>
                 </Frame>
             </Grid>
 
-            <!--  Campos Editáveis  -->
-            <Label Text="Nome:" TextColor="#000000" />
-            <Entry x:Name="txtNome" Style="{StaticResource CamposText}" />
+            <Label Text="Nome" 
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtNome" 
+                   Style="{StaticResource CamposText}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="E-mail:" TextColor="#000000" />
-            <Entry x:Name="txtEmail" Keyboard="Email" Style="{StaticResource CamposText}" />
+            <Label Text="E-mail" 
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtEmail" 
+                   Keyboard="Email" 
+                   Style="{StaticResource CamposText}"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="Descrição:" TextColor="#000000" />
-            <Entry x:Name="txtDescricaoPerfil" Style="{StaticResource CamposText}" />
+            <Label Text="Descrição" 
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtDescricaoPerfil" 
+                   Style="{StaticResource CamposText}"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="Telefone:" TextColor="#000000" />
-            <Entry x:Name="txtTelefone" Keyboard="Telephone" Style="{StaticResource CamposText}" />
+            <Label Text="Telefone" 
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtTelefone" 
+                   Keyboard="Telephone"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   Style="{StaticResource CamposText}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="Endereço:" TextColor="#000000" />
-            <Entry x:Name="txtEndereco" Style="{StaticResource CamposText}" />
+            <Label Text="Endereço"
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtEndereco" 
+                   Style="{StaticResource CamposText}"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="Cidade:" TextColor="#000000" />
-            <Entry x:Name="txtCidade" Style="{StaticResource CamposText}" />
+            <Label Text="Cidade"
+                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
+                   FontAttributes="Bold" />
+            <Entry x:Name="txtCidade" 
+                   Style="{StaticResource CamposText}"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <!--  Botão Salvar  -->
             <Button
-                BackgroundColor="#A92727"
+                BackgroundColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
                 Clicked="btnSalvar_Clicked"
                 CornerRadius="10"
+                FontAttributes="Bold"
                 HeightRequest="45"
                 Text="Salvar"
                 TextColor="White" />

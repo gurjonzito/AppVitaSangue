@@ -42,15 +42,13 @@ public partial class pgEditarPerfil : ContentPage
 
     private void AtualizarVisibilidadeBotoes()
     {
-        btnRemover.IsVisible = imgPerfil.Source != null;
+        btnRemover.IsVisible = !string.IsNullOrEmpty(sImagemSelecionada);
     }
 
     private async void btnSelecionar_Clicked(object sender, EventArgs e)
     {
         sImagemSelecionada = await ImageService.SelecionarImagem();
-
         imgPerfil.Source = sImagemSelecionada;
-
         AtualizarVisibilidadeBotoes();
     }
 
@@ -63,18 +61,28 @@ public partial class pgEditarPerfil : ContentPage
 
     private async void btnSalvar_Clicked(object sender, EventArgs e)
     {
+        if (string.IsNullOrWhiteSpace(txtNome.Text) ||
+         string.IsNullOrWhiteSpace(txtEmail.Text) ||
+         string.IsNullOrWhiteSpace(txtTelefone.Text) ||
+         string.IsNullOrWhiteSpace(txtEndereco.Text) ||
+         string.IsNullOrWhiteSpace(txtCidade.Text))
+        {
+            await DisplayAlert("Atenção", "Por favor, preencha todos os campos obrigatórios.", "OK");
+            return;
+        }
+
         if (doadorVisualizar != null)
         {
-            doadorVisualizar.Nome = txtNome.Text;
-            doadorVisualizar.Email = txtEmail.Text;
-            doadorVisualizar.Telefone = txtTelefone.Text;
-            doadorVisualizar.Endereco = txtEndereco.Text;
-            doadorVisualizar.Cidade = txtCidade.Text;
-            doadorVisualizar.DescricaoPerfil = txtDescricaoPerfil.Text;
+            doadorVisualizar.Nome = txtNome.Text.Trim();
+            doadorVisualizar.Email = txtEmail.Text.Trim();
+            doadorVisualizar.Telefone = txtTelefone.Text.Trim();
+            doadorVisualizar.Endereco = txtEndereco.Text.Trim();
+            doadorVisualizar.Cidade = txtCidade.Text.Trim();
+            doadorVisualizar.DescricaoPerfil = txtDescricaoPerfil.Text?.Trim();
 
             if (!string.IsNullOrEmpty(sImagemSelecionada))
             {
-                doadorVisualizar.DirImagem = ImageService.CopiarImagemDirApp(sImagemSelecionada);
+                doadorVisualizar.DirImagem = sImagemSelecionada;
             }
             else if (imgPerfil.Source == null)
             {

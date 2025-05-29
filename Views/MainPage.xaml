@@ -7,10 +7,20 @@
     Shell.NavBarIsVisible="False">
 
     <ScrollView>
-        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
-
-                <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+        <Grid 
+            RowDefinitions="Auto, Auto"
+            VerticalOptions="Center">
+            
+            <VerticalStackLayout 
+                Grid.Row="0"
+                Spacing="20" 
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="20">
+                
+                <VerticalStackLayout 
+                    HorizontalOptions="Center" 
+                    Spacing="10">
                     <Frame
                         Padding="0"
                         BackgroundColor="#FFFFFF"
@@ -32,20 +42,35 @@
                         FontFamily="OpenSans-Bold"
                         FontSize="24"
                         HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
                         Text="VitaSangue"
                         TextColor="#FFFFFF" />
                     <Label
                         FontAttributes="Italic"
                         FontSize="16"
                         HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
                         Text="Doe sangue. Salve vidas."
                         TextColor="White" />
                 </VerticalStackLayout>
-
-                <VerticalStackLayout HorizontalOptions="Center" Spacing="15" WidthRequest="250">
-                    <Button Clicked="btnSerDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Ser doador" />
-                    <Button Clicked="btnJaSouDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Já sou doador" />
-                </VerticalStackLayout>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout 
+                Grid.Row="1"
+                Spacing="15" 
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="20">
+                <Button 
+                    Clicked="btnSerDoador_Clicked" 
+                    Style="{StaticResource PrimaryButton}" 
+                    Text="Ser doador" 
+                    WidthRequest="250"/>
+                <Button 
+                    Clicked="btnJaSouDoador_Clicked" 
+                    Style="{StaticResource PrimaryButton}" 
+                    Text="Já sou doador" 
+                    WidthRequest="250"/>
             </VerticalStackLayout>
         </Grid>
     </ScrollView>

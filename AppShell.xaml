@@ -6,6 +6,10 @@
     xmlns:local="clr-namespace:AppVitaSangue"
     xmlns:views="clr-namespace:AppVitaSangue.Views"
     Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarHasShadow="True"
+    Shell.BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+    Shell.TitleColor="{AppThemeBinding Light=#2D3748, Dark=#FFFFFF}"     
+    Shell.ForegroundColor="{AppThemeBinding Light=#2D3748, Dark=#FFFFFF}"
     Title="AppVitaSangue">
 
     <ShellContent 
@@ -18,23 +22,32 @@
         ContentTemplate="{DataTemplate views:pgLogin}"
         Route="pgLogin" />
 
-    <TabBar Route="PrincipalTabBar">
+    <TabBar
+        Shell.TabBarBackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+        Shell.TabBarTitleColor="{AppThemeBinding Light=#2D3748, Dark=#FFFFFF}"
+        Shell.TabBarUnselectedColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+        Route="PrincipalTabBar">
+        
         <ShellContent
+            Title="Feed"
             Icon="home_icon.png"
             ContentTemplate="{DataTemplate views:pgPrincipal}"
             Route="pgPrincipal" />
 
         <ShellContent
+            Title="Doar"
             Icon="add_icon.png"
             ContentTemplate="{DataTemplate views:pgCadDoacao}"
             Route="pgCadDoacao" />
         
         <ShellContent
+            Title="Perfil"
             Icon="user_icon.png"
             ContentTemplate="{DataTemplate views:pgPerfil}"
             Route="pgCadDoacao" />
 
         <ShellContent
+            Title="Ajustes"
             Icon="config_icon.png"
             ContentTemplate="{DataTemplate views:pgConfig}"
             Route="pgConfig" />

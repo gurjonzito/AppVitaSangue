@@ -5,6 +5,12 @@
         public App()
         {
             InitializeComponent();
+
+            if (Preferences.ContainsKey("user_theme_preference"))
+            {
+                var theme = Preferences.Get("user_theme_preference", "Light");
+                UserAppTheme = theme == "Dark" ? AppTheme.Dark : AppTheme.Light;
+            }
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

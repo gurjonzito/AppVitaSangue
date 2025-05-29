@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Entrar"
-    BackgroundColor="#F1F4F4">
+    BackgroundColor="{AppThemeBinding Light=#F1F4F4, Dark=#1E1E1E}">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
@@ -31,36 +31,50 @@
                     FontSize="22"
                     HorizontalOptions="Center"
                     Text="VitaSangue"
-                    TextColor="#77181E" />
+                    TextColor="{AppThemeBinding Light=#77181E, Dark=#FEB2B2}" />
             </VerticalStackLayout>
 
-            <!--  Formulário  -->
             <VerticalStackLayout Padding="0,10" Spacing="12">
-                <Label FontSize="16" Text="CPF:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="CPF:" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <Entry
                     x:Name="txtCPF"
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Numeric"
                     MaxLength="14"
                     Placeholder="000.000.000-00"
+                    PlaceholderColor="{AppThemeBinding Light=#A0AEC0, Dark=#718096}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Completed="OnCPFCompleted"
                     Unfocused="OnCPFUnfocused"
                     Style="{StaticResource CamposText}" />
 
-                <Label FontSize="16" Text="Senha:" TextColor="#000000" />
+                <Label 
+                    FontSize="16" 
+                    Text="Senha:" 
+                    TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <Entry
                     x:Name="txtSenha"
                     ClearButtonVisibility="WhileEditing"
                     IsPassword="True"
                     Placeholder="Sua senha"
+                    PlaceholderColor="{AppThemeBinding Light=#A0AEC0, Dark=#718096}"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                     Style="{StaticResource CamposText}" />
 
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="cbxMostrarSenha" CheckedChanged="cbxMostrarSenha_CheckedChanged" Color="Blue" />
+                    <CheckBox 
+                        x:Name="cbxMostrarSenha" 
+                        CheckedChanged="cbxMostrarSenha_CheckedChanged" 
+                        Color="{AppThemeBinding Light=#77181E, Dark=#FEB2B2}" />
                     <Label
                         HorizontalTextAlignment="Start"
                         Text="Mostrar senha"
-                        TextColor="#000000"
+                        TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}"
                         VerticalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="tapMostrarSenha_Tapped" />
@@ -71,17 +85,23 @@
                 <Button
                     Margin="0,20"
                     Clicked="btnEntrar_Clicked"
-                    Style="{StaticResource SecondaryButton}"
+                    BackgroundColor="{AppThemeBinding Light=#77181E, Dark=#C53030}"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
                     Text="Entrar" />
 
                 <Label HorizontalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Não possui uma conta? " TextColor="#000000" />
+                            <Span 
+                                Text="Não possui uma conta? " 
+                                TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                             <Span
                                 FontAttributes="Bold"
                                 Text="Cadastre-se"
-                                TextColor="#77181E"
+                                TextColor="{AppThemeBinding Light=#77181E, Dark=#FEB2B2}"
                                 TextDecorations="Underline" />
                         </FormattedString>
                     </Label.FormattedText>

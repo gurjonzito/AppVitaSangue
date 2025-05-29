@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppVitaSangue.Views.pgAcessibilidade"
+             Title="Acessibilidade"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Light=#F1F4F4, Dark=#1E1E1E}">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <!-- Theme Toggle -->
+        <Frame
+            Padding="15"
+            BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+            BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#333333}"
+            CornerRadius="10"
+            HasShadow="True">
+
+            <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label
+                    x:Name="lblTema"
+                    Text="Tema do Aplicativo"
+                    FontSize="16"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+
+                <Switch 
+                    x:Name="themeSwitch"
+                    OnColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
+                    ThumbColor="{AppThemeBinding Light=White, Dark=#E2E8F0}"
+                    Toggled="OnThemeToggled"
+                    VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Font Size Options -->
+        <Frame
+            Padding="15"
+            BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+            BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#333333}"
+            CornerRadius="10"
+            HasShadow="True">
+
+            <VerticalStackLayout Spacing="10">
+                <Label 
+                    Text="Tamanho do Texto"
+                    FontSize="16"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Button 
+                        Text="A-"
+                        CornerRadius="20"
+                        WidthRequest="50"
+                        BackgroundColor="{AppThemeBinding Light=#EDF2F7, Dark=#2D3748}"
+                        TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                    <Button 
+                        Text="A"
+                        CornerRadius="20"
+                        WidthRequest="50"
+                        BackgroundColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
+                        TextColor="White"/>
+
+                    <Button 
+                        Text="A+"
+                        CornerRadius="20"
+                        WidthRequest="50"
+                        BackgroundColor="{AppThemeBinding Light=#EDF2F7, Dark=#2D3748}"
+                        TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame
+            Padding="15"
+            BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
+            BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#333333}"
+            CornerRadius="10"
+            HasShadow="True">
+
+            <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label 
+                    Text="Alto Contraste"
+                    FontSize="16"
+                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"/>
+
+                <Switch 
+                    x:Name="contrastSwitch"
+                    OnColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
+                    ThumbColor="{AppThemeBinding Light=White, Dark=#E2E8F0}"
+                    VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>
