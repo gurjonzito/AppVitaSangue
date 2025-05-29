@@ -8,7 +8,13 @@ namespace AppVitaSangue
         {
             InitializeComponent();
 
+            Routing.RegisterRoute("pgLogin", typeof(pgLogin));
             Routing.RegisterRoute("pgPrincipal", typeof(pgPrincipal));
+            Routing.RegisterRoute("pgCadDoacao", typeof(pgCadDoacao));
+            Routing.RegisterRoute("pgPerfil", typeof(pgPerfil));
+            Routing.RegisterRoute("pgConfig", typeof(pgConfig));
+
+
         }
     }
 }

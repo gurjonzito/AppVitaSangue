@@ -6,4 +6,9 @@ public partial class pgCadDoacao : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void btnDoar_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

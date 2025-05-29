@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using AppVitaSangue.Controllers;
 using AppVitaSangue.Models;
 
@@ -67,8 +68,8 @@ public partial class pgConfig : ContentPage
 
     }
 
-    private void Sair_Tapped(object sender, TappedEventArgs e)
+    private async void Sair_Tapped(object sender, TappedEventArgs e)
     {
-
+        await Shell.Current.GoToAsync("//pgLogin");
     }
 }

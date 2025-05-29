@@ -5,9 +5,314 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Feed"
     Shell.TabBarIsVisible="True">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="30">
 
-    <VerticalStackLayout>
-        <Button Clicked="btnPerfil_Clicked" Text="Perfil" />
-        <Button Clicked="btnConfig_Clicked" Text="Config" />
-    </VerticalStackLayout>
+            <Label Text="Notícias em Destaque"
+      FontSize="24"
+      FontAttributes="Bold"
+      TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+      HorizontalOptions="StartAndExpand"/>
+
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="20" Padding="0,0,0,10">
+
+                    <Frame WidthRequest="280"
+              CornerRadius="12"
+              BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+              HasShadow="True"
+              Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid
+                     Margin="-12,-12,-12,0"
+                     HeightRequest="210">
+                                <Image Source="noticia.jpg"
+                          HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="10">
+                                <Label Text="INFORMATIVO"
+                          TextColor="#A92727"
+                          FontSize="14"
+                          FontAttributes="Bold"
+                          CharacterSpacing="1.1"
+                          Margin="0,0,0,-4"/>
+
+                                <Label Text="Por que doar sangue é tão importante?"
+                          FontSize="18"
+                          FontAttributes="Bold"
+                          TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Uma única doação pode salvar até quatro vidas."
+                          FontSize="14"
+                          TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                          LineBreakMode="WordWrap"
+                          MaxLines="3"/>
+
+                                <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+                                    <Frame WidthRequest="36" 
+                              HeightRequest="36"
+                              CornerRadius="18"
+                              Padding="0"
+                              IsClippedToBounds="True">
+                                        <Image Source="avatar.png"/>
+                                    </Frame>
+
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="Alan Miguel"
+                                  FontSize="13"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                        <Label Text="02 Jun, 2025 · 5min"
+                                  FontSize="11"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <Frame WidthRequest="280"
+              CornerRadius="12"
+              BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+              HasShadow="True"
+              Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid
+                     Margin="-12,-12,-12,0"
+                     HeightRequest="210">
+                                <Image Source="noticia.jpg"
+                          HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="10">
+                                <Label Text="INFORMATIVO"
+                          TextColor="#A92727"
+                          FontSize="14"
+                          FontAttributes="Bold"
+                          CharacterSpacing="1.1"
+                          Margin="0,0,0,-4"/>
+
+                                <Label Text="Mitos e verdades sobre doação de sangue"
+                          FontSize="18"
+                          FontAttributes="Bold"
+                          TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Desvende os principais mitos que afastam possíveis doadores."
+                          FontSize="14"
+                          TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                          LineBreakMode="WordWrap"
+                          MaxLines="3"/>
+
+                                <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+                                    <Frame WidthRequest="36" 
+                              HeightRequest="36"
+                              CornerRadius="18"
+                              Padding="0"
+                              IsClippedToBounds="True">
+                                        <Image Source="avatar.png"/>
+                                    </Frame>
+
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="Alan Miguel"
+                                  FontSize="13"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                        <Label Text="02 Jun, 2025 · 5min"
+                                  FontSize="11"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <Frame WidthRequest="280"
+              CornerRadius="12"
+              BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+              HasShadow="True"
+              Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid
+                     Margin="-12,-12,-12,0"
+                     HeightRequest="210">
+                                <Image Source="noticia.jpg"
+                          HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="10">
+                                <Label Text="INFORMATIVO"
+                          TextColor="#A92727"
+                          FontSize="14"
+                          FontAttributes="Bold"
+                          CharacterSpacing="1.1"
+                          Margin="0,0,0,-4"/>
+
+                                <Label Text="Junho Vermelho: campanha incentiva doações"
+                          FontSize="18"
+                          FontAttributes="Bold"
+                          TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Doar sangue salva vidas e une a sociedade."
+                          FontSize="14"
+                          TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                          LineBreakMode="WordWrap"
+                          MaxLines="3"/>
+
+                                <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+                                    <Frame WidthRequest="36" 
+                              HeightRequest="36"
+                              CornerRadius="18"
+                              Padding="0"
+                              IsClippedToBounds="True">
+                                        <Image Source="avatar.png"/>
+                                    </Frame>
+
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="Alan Miguel"
+                                  FontSize="13"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                        <Label Text="02 Jun, 2025 · 4min"
+                                  FontSize="11"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <Label Text="Doações Urgentes"
+              FontSize="24"
+              FontAttributes="Bold"
+              TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
+              HorizontalOptions="StartAndExpand"
+              Margin="0,20,0,0"/>
+
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="20" Padding="10,0">
+
+                    <Frame WidthRequest="280"
+                      CornerRadius="12"
+                      BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+                      BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+                      HasShadow="True"
+                      Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid 
+                             Margin="-12,-12,-12,0"
+                             HeightRequest="210">
+                                <Image Source="doacao.jpg"
+                                  HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="14">
+                                <Label Text="A+"
+                                  TextColor="#A92727"
+                                  FontSize="14"
+                                  FontAttributes="Bold"
+                                  CharacterSpacing="1.1"/>
+
+                                <Label Text="Bebedouro"
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Estoque crítico de sangue tipo A+. Hemocentro local solicita doações com urgência."
+                                  FontSize="14"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                                  LineBreakMode="WordWrap"
+                                  MaxLines="3"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <Frame WidthRequest="280"
+                      CornerRadius="12"
+                      BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+                      BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+                      HasShadow="True"
+                      Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid 
+                             Margin="-12,-12,-12,0"
+                             HeightRequest="210">
+                                <Image Source="doacao.jpg"
+                                  HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="14">
+                                <Label Text="O-"
+                                  TextColor="#A92727"
+                                  FontSize="14"
+                                  FontAttributes="Bold"
+                                  CharacterSpacing="1.1"/>
+
+                                <Label Text="Barretos"
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Doadores O- são raros e essenciais. Hospital de Barretos emite alerta urgente."
+                                  FontSize="14"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                                  LineBreakMode="WordWrap"
+                                  MaxLines="3"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <Frame WidthRequest="280"
+                      CornerRadius="12"
+                      BorderColor="{AppThemeBinding Light=#EDF2F7, Dark=#1A202C}"
+                      BackgroundColor="{AppThemeBinding Light=White, Dark=#171923}"
+                      HasShadow="True"
+                      Padding="0">
+
+                        <Grid RowDefinitions="210, *">
+                            <Grid 
+                             Margin="-12,-12,-12,0"
+                             HeightRequest="210">
+                                <Image Source="doacao.jpg"
+                                  HeightRequest="210"/>
+                            </Grid>
+
+                            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="12">
+                                <Label Text="B+"
+                                  TextColor="#A92727"
+                                  FontSize="14"
+                                  FontAttributes="Bold"
+                                  CharacterSpacing="1.1"/>
+
+                                <Label Text="Bebedouro"
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"/>
+
+                                <Label Text="Unidade de saúde enfrenta escassez de sangue B+. Compareça e ajude a salvar vidas."
+                                  FontSize="14"
+                                  TextColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}"
+                                  LineBreakMode="WordWrap"
+                                  MaxLines="3"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

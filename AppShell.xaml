@@ -5,12 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AppVitaSangue"
     xmlns:views="clr-namespace:AppVitaSangue.Views"
+    Shell.FlyoutBehavior="Disabled"
     Title="AppVitaSangue">
 
     <ShellContent 
         Title="Home"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
+
+    <ShellContent 
+        Title="Entrar"
+        ContentTemplate="{DataTemplate views:pgLogin}"
+        Route="pgLogin" />
 
     <TabBar Route="PrincipalTabBar">
         <ShellContent

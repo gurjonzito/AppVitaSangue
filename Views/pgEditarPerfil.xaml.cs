@@ -30,6 +30,7 @@ public partial class pgEditarPerfil : ContentPage
             txtTelefone.Text = doadorVisualizar.Telefone;
             txtEndereco.Text = doadorVisualizar.Endereco;
             txtCidade.Text = doadorVisualizar.Cidade;
+            txtDescricaoPerfil.Text = doadorVisualizar.DescricaoPerfil;
 
             if (!string.IsNullOrEmpty(doadorVisualizar.DirImagem))
             {
@@ -69,6 +70,7 @@ public partial class pgEditarPerfil : ContentPage
             doadorVisualizar.Telefone = txtTelefone.Text;
             doadorVisualizar.Endereco = txtEndereco.Text;
             doadorVisualizar.Cidade = txtCidade.Text;
+            doadorVisualizar.DescricaoPerfil = txtDescricaoPerfil.Text;
 
             if (!string.IsNullOrEmpty(sImagemSelecionada))
             {
@@ -84,7 +86,7 @@ public partial class pgEditarPerfil : ContentPage
             if (resultado)
             {
                 await DisplayAlert("Sucesso", "Perfil atualizado com sucesso!", "OK");
-                await Navigation.PopAsync(); 
+                await Shell.Current.GoToAsync("//PrincipalTabBar/pgPerfil");
             }
             else
             {

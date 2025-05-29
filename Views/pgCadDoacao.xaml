@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppVitaSangue.Views.pgCadDoacao"
-             Title="Doação">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="AppVitaSangue.Views.pgCadDoacao"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Cadastro de Doação"
+    BackgroundColor="#F1F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="2">
+
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Frame
+                 Padding="0"
+                 BackgroundColor="Transparent"
+                 BorderColor="Transparent"
+                 CornerRadius="100"
+                 HeightRequest="200"
+                 HorizontalOptions="Center"
+                 WidthRequest="200">
+                    <Image
+                     Aspect="AspectFit"
+                     HeightRequest="110"
+                     Source="doar.png"
+                     WidthRequest="110" />
+                </Frame>
+            </VerticalStackLayout>
+            <!-- Formulário -->
+            <VerticalStackLayout Padding="0,10" Spacing="12">
+                <!-- Grupo Tipo Sanguíneo (apenas exibição) -->
+                <Label FontSize="16" Text="Tipo Sanguíneo:" TextColor="#000000" />
+                <Entry
+                x:Name="entTipoSanguineo"
+                IsReadOnly="True"
+                Style="{StaticResource CamposText}"
+                BackgroundColor="#DEE7E7"
+                TextColor="#333333"
+                Placeholder="Carregando..."/>
+
+                <!-- Grupo Hospital -->
+                <Label FontSize="16" Text="Hospital:" TextColor="#000000" />
+                <Picker
+                    x:Name="pckrHospital"
+                    BackgroundColor="#DEE7E7"
+                    HeightRequest="40"
+                    TextColor="Black">
+                    <Picker.Items>
+                        <x:String>Hospital do Amor, Bebedouro</x:String>
+                        <x:String>Hospital do Amor, Barretos</x:String>
+                        <x:String>Hemocentro, São José do Rio Preto</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Grupo Data da Doação -->
+                <Label FontSize="16" Text="Data da Doação:" TextColor="#000000" />
+                <DatePicker 
+                    x:Name="dpDataDoacao" 
+                    Format="dd/MM/yyyy" 
+                    Style="{StaticResource CamposText}" />
+                <Button
+                    Margin="0,20"
+                    Clicked="btnDoar_Clicked"
+                    Style="{StaticResource SecondaryButton}"
+                    Text="Doar" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -34,6 +34,7 @@ public partial class pgPerfil : ContentPage
             lblNome.Text = doadorVisualizar.Nome;
             lblTipoSanguineo.Text = doadorVisualizar.TipoSangue;
             lblCidade.Text = doadorVisualizar.Cidade;
+            lblDescricaoPerfil.Text = doadorVisualizar.DescricaoPerfil;
 
             if (!string.IsNullOrEmpty(doadorVisualizar.DirImagem))
             {

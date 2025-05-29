@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Editar Perfil"
+    Shell.TabBarIsVisible="False"
     BackgroundColor="#F1F4F4">
 
     <ScrollView>
@@ -63,6 +64,9 @@
 
             <Label Text="E-mail:" TextColor="#000000" />
             <Entry x:Name="txtEmail" Keyboard="Email" Style="{StaticResource CamposText}" />
+
+            <Label Text="Descrição:" TextColor="#000000" />
+            <Entry x:Name="txtDescricaoPerfil" Style="{StaticResource CamposText}" />
 
             <Label Text="Telefone:" TextColor="#000000" />
             <Entry x:Name="txtTelefone" Keyboard="Telephone" Style="{StaticResource CamposText}" />

@@ -7,46 +7,46 @@
     Shell.NavBarIsVisible="False">
 
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="Center" Spacing="20" VerticalOptions="CenterAndExpand">
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
 
-            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
-                <Frame
-                    Padding="0"
-                    BackgroundColor="#FFFFFF"
-                    BorderColor="Transparent"
-                    CornerRadius="100"
-                    HeightRequest="200"
-                    HorizontalOptions="Center"
-                    WidthRequest="200">
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="#FFFFFF"
+                        BorderColor="Transparent"
+                        CornerRadius="100"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        WidthRequest="200">
 
-                    <Image
-                        Aspect="AspectFit"
-                        HeightRequest="130"
-                        Source="doar2.png"
-                        WidthRequest="130" />
-                </Frame>
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="130"
+                            Source="doar2.png"
+                            WidthRequest="130" />
+                    </Frame>
 
-                <Label
-                    FontAttributes="Bold"
-                    FontFamily="OpenSans-Bold"
-                    FontSize="24"
-                    HorizontalOptions="Center"
-                    Text="VitaSangue"
-                    TextColor="#FFFFFF" />
-                <Label
-                    FontAttributes="Italic"
-                    FontSize="16"
-                    HorizontalOptions="Center"
-                    Text="Doe sangue. Salve vidas."
-                    TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSans-Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="VitaSangue"
+                        TextColor="#FFFFFF" />
+                    <Label
+                        FontAttributes="Italic"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Doe sangue. Salve vidas."
+                        TextColor="White" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="15" WidthRequest="250">
+                    <Button Clicked="btnSerDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Ser doador" />
+                    <Button Clicked="btnJaSouDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Já sou doador" />
+                </VerticalStackLayout>
             </VerticalStackLayout>
-
-            <VerticalStackLayout HorizontalOptions="Fill" Spacing="15" WidthRequest="250">
-
-                <Button Clicked="btnSerDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Ser doador" />
-
-                <Button Clicked="btnJaSouDoador_Clicked" Style="{StaticResource PrimaryButton}" Text="Já sou doador" />
-            </VerticalStackLayout>
-        </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>

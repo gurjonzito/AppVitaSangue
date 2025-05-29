@@ -8,151 +8,160 @@
     Title="Configurações"
     BackgroundColor="#F1F4F4">
 
-    <VerticalStackLayout HorizontalOptions="Center" Spacing="20" VerticalOptions="CenterAndExpand">
-        <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
-            <Frame
-                Padding="0"
-                BackgroundColor="#FFFFFF"
-                BorderColor="Transparent"
-                CornerRadius="100"
-                HeightRequest="130"
-                HorizontalOptions="Center"
-                WidthRequest="130">
+    <ScrollView>
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
 
-                <Image
-                    x:Name="imgPerfil"
-                    Aspect="AspectFill"
-                    HeightRequest="125"
-                    WidthRequest="125" />
-            </Frame>
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="20">
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="LightGray"
+                        BorderColor="Transparent"
+                        CornerRadius="100"
+                        HeightRequest="130"
+                        HorizontalOptions="Center"
+                        WidthRequest="130">
 
-            <Label
-                x:Name="lblNome"
-                FontSize="18"
-                HorizontalOptions="Center"
-                TextColor="#000000" />
-            <Label
-                x:Name="lblEmail"
-                FontSize="14"
-                HorizontalOptions="Center"
-                TextColor="#000000" />
-
-            <Frame
-                Padding="20"
-                BackgroundColor="#282832"
-                BorderColor="Transparent"
-                CornerRadius="10"
-                WidthRequest="300">
-                <VerticalStackLayout Spacing="10">
-                    <HorizontalStackLayout Padding="10" Spacing="10">
                         <Image
-                            HeightRequest="20"
-                            Source="ferramenta.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                            x:Name="imgPerfil"
+                            Aspect="AspectFill"
+                            HeightRequest="125"
+                            WidthRequest="125" />
+                    </Frame>
 
-                        <Label
-                            FontSize="16"
-                            Text="Atualizar dados pessoais"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="EditarPerfil_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                    <Label
+                        x:Name="lblNome"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        TextColor="#000000" />
+                    <Label
+                        x:Name="lblEmail"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        
+                        TextColor="#000000" />
 
-                    <HorizontalStackLayout Padding="10" Spacing="10">
-                        <Image
-                            HeightRequest="20"
-                            Source="lampada.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                    <Frame
+                        Padding="20"
+                        BackgroundColor="#282832"
+                        BorderColor="Transparent"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        WidthRequest="300">
+                        <VerticalStackLayout Spacing="10">
+                            <!-- Itens de menu permanecem os mesmos -->
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="ferramenta.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
 
-                        <Label
-                            FontSize="16"
-                            Text="Acessibilidade"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Acessibilidade_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                                <Label
+                                    FontSize="16"
+                                    Text="Atualizar dados pessoais"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="EditarPerfil_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Padding="10" Spacing="10">
-                        <Image
-                            HeightRequest="20"
-                            Source="sobre.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                            <!-- Restante dos itens de menu... -->
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="lampada.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
 
-                        <Label
-                            FontSize="16"
-                            Text="Sobre"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Sobre_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                                <Label
+                                    FontSize="16"
+                                    Text="Acessibilidade"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Acessibilidade_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Padding="10" Spacing="10">
-                        <Image
-                            HeightRequest="20"
-                            Source="privacidade.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="sobre.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
 
-                        <Label
-                            FontSize="16"
-                            Text="Privacidade"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Privacidade_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                                <Label
+                                    FontSize="16"
+                                    Text="Sobre"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Sobre_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Padding="10" Spacing="10">
-                        <Image
-                            HeightRequest="20"
-                            Source="encerrar.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="privacidade.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
 
-                        <Label
-                            FontSize="16"
-                            Text="Encerrar conta"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="EncerrarConta_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                                <Label
+                                    FontSize="16"
+                                    Text="Privacidade"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Privacidade_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Padding="10" Spacing="10">
-                        <Image
-                            HeightRequest="20"
-                            Source="sair.png"
-                            VerticalOptions="Center"
-                            WidthRequest="20" />
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="encerrar.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
 
-                        <Label
-                            FontSize="16"
-                            Text="Sair"
-                            TextColor="#F1F4F4"
-                            VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Sair_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                                <Label
+                                    FontSize="16"
+                                    Text="Encerrar conta"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="EncerrarConta_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Padding="10" Spacing="10">
+                                <Image
+                                    HeightRequest="20"
+                                    Source="sair.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
+
+                                <Label
+                                    FontSize="16"
+                                    Text="Sair"
+                                    TextColor="#F1F4F4"
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Sair_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
                 </VerticalStackLayout>
-            </Frame>
-        </VerticalStackLayout>
-    </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

@@ -16,5 +16,7 @@ namespace AppVitaSangue.Models
         public string Cidade { get; set; }
         public string Senha { get; set; }
         public string DirImagem { get; set; }
+        public string DescricaoPerfil { get; set; }
+
     }
 }

@@ -18,7 +18,7 @@
                 <Frame
                     Padding="0"
                     BackgroundColor="LightGray"
-                    CornerRadius="50"
+                    CornerRadius="100"
                     HeightRequest="100"
                     WidthRequest="100">
                     <Image
@@ -26,6 +26,8 @@
                         Aspect="AspectFill"
                         HeightRequest="95"
                         WidthRequest="95" />
+
+
                 </Frame>
 
                 <!--  Informações Básicas  -->
@@ -38,6 +40,12 @@
 
                     <Label x:Name="lblTipoSanguineo" FontSize="14" TextColor="#77181E" />
                     <Label x:Name="lblCidade" FontSize="14" TextColor="#000000" />
+                    <Label 
+                        x:Name="lblDescricaoPerfil"
+                        Text="Descrições sobre o doador."
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        TextColor="#666666"/>
                 </VerticalStackLayout>
             </Grid>
 
