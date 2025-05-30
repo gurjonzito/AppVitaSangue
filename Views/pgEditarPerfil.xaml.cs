@@ -16,6 +16,7 @@ public partial class pgEditarPerfil : ContentPage
         doadorController = new DoadorController();
         ExibirDados();
         AtualizarVisibilidadeBotoes();
+
     }
 
     private void ExibirDados()
@@ -26,9 +27,6 @@ public partial class pgEditarPerfil : ContentPage
         if (doadorVisualizar != null)
         {
             txtNome.Text = doadorVisualizar.Nome;
-            txtEmail.Text = doadorVisualizar.Email;
-            txtTelefone.Text = doadorVisualizar.Telefone;
-            txtEndereco.Text = doadorVisualizar.Endereco;
             txtCidade.Text = doadorVisualizar.Cidade;
             txtDescricaoPerfil.Text = doadorVisualizar.DescricaoPerfil;
 
@@ -62,9 +60,6 @@ public partial class pgEditarPerfil : ContentPage
     private async void btnSalvar_Clicked(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(txtNome.Text) ||
-         string.IsNullOrWhiteSpace(txtEmail.Text) ||
-         string.IsNullOrWhiteSpace(txtTelefone.Text) ||
-         string.IsNullOrWhiteSpace(txtEndereco.Text) ||
          string.IsNullOrWhiteSpace(txtCidade.Text))
         {
             await DisplayAlert("Atenção", "Por favor, preencha todos os campos obrigatórios.", "OK");
@@ -74,9 +69,6 @@ public partial class pgEditarPerfil : ContentPage
         if (doadorVisualizar != null)
         {
             doadorVisualizar.Nome = txtNome.Text.Trim();
-            doadorVisualizar.Email = txtEmail.Text.Trim();
-            doadorVisualizar.Telefone = txtTelefone.Text.Trim();
-            doadorVisualizar.Endereco = txtEndereco.Text.Trim();
             doadorVisualizar.Cidade = txtCidade.Text.Trim();
             doadorVisualizar.DescricaoPerfil = txtDescricaoPerfil.Text?.Trim();
 

@@ -24,7 +24,7 @@
                           BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                           Padding="0">
                         <Grid RowDefinitions="210, *">
-                            <Image Source="noticia.jpg"
+                            <Image Source="noticia.png"
                                   Aspect="AspectFill"
                                   HeightRequest="210"
                                   Margin="-12,-12,-12,0"/>
@@ -56,7 +56,7 @@
                           BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                           Padding="0">
                         <Grid RowDefinitions="210, *">
-                            <Image Source="noticia.jpg"
+                            <Image Source="noticia.png"
                                   Aspect="AspectFill"
                                   HeightRequest="210"
                                   Margin="-12,-12,-12,0"/>
@@ -88,7 +88,7 @@
                           BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                           Padding="0">
                         <Grid RowDefinitions="210, *">
-                            <Image Source="noticia.jpg"
+                            <Image Source="noticia.png"
                                   Aspect="AspectFill"
                                   HeightRequest="210"
                                   Margin="-12,-12,-12,0"/>

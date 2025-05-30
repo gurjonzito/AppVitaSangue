@@ -37,7 +37,8 @@
             <VerticalStackLayout Padding="0,10" Spacing="12">
                 <Label 
                     FontSize="16" 
-                    Text="CPF:" 
+                    Text="CPF"
+                    FontAttributes="Bold"
                     TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <Entry
                     x:Name="txtCPF"
@@ -54,7 +55,8 @@
 
                 <Label 
                     FontSize="16" 
-                    Text="Senha:" 
+                    Text="Senha"
+                    FontAttributes="Bold"
                     TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
                 <Entry
                     x:Name="txtSenha"

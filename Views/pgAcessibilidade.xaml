@@ -8,7 +8,6 @@
 
     <VerticalStackLayout Padding="20" Spacing="20">
 
-        <!-- Theme Toggle -->
         <Frame
             Padding="15"
             BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
@@ -28,13 +27,12 @@
                 <Switch 
                     x:Name="themeSwitch"
                     OnColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
-                    ThumbColor="{AppThemeBinding Light=White, Dark=#E2E8F0}"
+                    ThumbColor="{AppThemeBinding Light=LightGray, Dark=#E2E8F0}"
                     Toggled="OnThemeToggled"
                     VerticalOptions="Center"/>
             </HorizontalStackLayout>
         </Frame>
 
-        <!-- Font Size Options -->
         <Frame
             Padding="15"
             BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
@@ -91,7 +89,7 @@
                 <Switch 
                     x:Name="contrastSwitch"
                     OnColor="{AppThemeBinding Light=#A92727, Dark=#C53030}"
-                    ThumbColor="{AppThemeBinding Light=White, Dark=#E2E8F0}"
+                    ThumbColor="{AppThemeBinding Light=LightGray, Dark=#E2E8F0}"
                     VerticalOptions="Center"/>
             </HorizontalStackLayout>
         </Frame>

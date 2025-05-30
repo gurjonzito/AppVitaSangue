@@ -38,6 +38,7 @@
                     <Label
                         x:Name="lblEmail"
                         FontSize="14"
+                        FontAttributes="Italic"
                         HorizontalOptions="Center"
                         TextColor="{AppThemeBinding Light=#000000, Dark=#E2E8F0}" />
 

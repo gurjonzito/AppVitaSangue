@@ -27,20 +27,17 @@ public partial class pgCadDoador : ContentPage
         var text = txtCPF.Text ?? "";
         string digitsOnly = new string(text.Where(char.IsDigit).ToArray());
 
-        // Garante que não ultrapasse 11 dígitos
         if (digitsOnly.Length > 11)
         {
             digitsOnly = digitsOnly.Substring(0, 11);
         }
 
-        // Aplica formatação apenas se tiver 11 dígitos
         if (digitsOnly.Length == 11)
         {
             txtCPF.Text = $"{digitsOnly.Substring(0, 3)}.{digitsOnly.Substring(3, 3)}.{digitsOnly.Substring(6, 3)}-{digitsOnly.Substring(9)}";
         }
         else
         {
-            // Mantém apenas os dígitos (sem formatação incompleta)
             txtCPF.Text = digitsOnly;
         }
     }
@@ -55,28 +52,24 @@ public partial class pgCadDoador : ContentPage
         FormatTelefone();
     }
 
-    // Método principal de formatação
     private void FormatTelefone()
     {
         var text = txtTelefone.Text ?? "";
 
-        // Remove tudo que não é dígito
         string digitsOnly = new string(text.Where(char.IsDigit).ToArray());
 
-        // Limita a 11 caracteres (DDD + 9 dígitos)
         if (digitsOnly.Length > 11)
         {
             digitsOnly = digitsOnly.Substring(0, 11);
         }
 
-        // Aplica a formatação de acordo com o tamanho
         string formatted = digitsOnly;
 
-        if (digitsOnly.Length == 11) // Celular com 9 dígitos
+        if (digitsOnly.Length == 11) 
         {
             formatted = $"({digitsOnly.Substring(0, 2)}) {digitsOnly.Substring(2, 5)}-{digitsOnly.Substring(7)}";
         }
-        else if (digitsOnly.Length == 10) // Telefone fixo com 8 dígitos
+        else if (digitsOnly.Length == 10)
         {
             formatted = $"({digitsOnly.Substring(0, 2)}) {digitsOnly.Substring(2, 4)}-{digitsOnly.Substring(6)}";
         }
@@ -89,7 +82,6 @@ public partial class pgCadDoador : ContentPage
             formatted = $"({digitsOnly}";
         }
 
-        // Atualiza o texto formatado
         txtTelefone.Text = formatted;
     }
 

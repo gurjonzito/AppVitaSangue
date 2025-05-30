@@ -66,39 +66,10 @@
                     BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                    PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
 
-            <Label Text="E-mail" 
-                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
-                   FontAttributes="Bold" />
-            <Entry x:Name="txtEmail" 
-                   Keyboard="Email" 
-                   Style="{StaticResource CamposText}"
-                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
-                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
-                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
-
             <Label Text="Descrição" 
                    TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
                    FontAttributes="Bold" />
             <Entry x:Name="txtDescricaoPerfil" 
-                   Style="{StaticResource CamposText}"
-                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
-                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
-                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
-
-            <Label Text="Telefone" 
-                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
-                   FontAttributes="Bold" />
-            <Entry x:Name="txtTelefone" 
-                   Keyboard="Telephone"
-                   BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
-                   Style="{StaticResource CamposText}"
-                   TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
-                   PlaceholderColor="{AppThemeBinding Light=#718096, Dark=#A0AEC0}" />
-
-            <Label Text="Endereço"
-                   TextColor="{AppThemeBinding Light=#000000, Dark=White}" 
-                   FontAttributes="Bold" />
-            <Entry x:Name="txtEndereco" 
                    Style="{StaticResource CamposText}"
                    BackgroundColor="{AppThemeBinding Light=White, Dark=#252525}"
                    TextColor="{AppThemeBinding Light=#2D3748, Dark=White}"
