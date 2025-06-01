@@ -5,46 +5,88 @@ namespace AppVitaSangue.Views;
 
 public partial class pgCadDoacao : ContentPage
 {
-    private DoacaoController doacaoController;
-    private DoadorController doadorController;
-    private string cpfLogado;
+    private readonly DoacaoController _doacaoController;
+    private readonly DoadorController _doadorController;
+    private readonly string _cpfLogado;
 
     public pgCadDoacao()
     {
         InitializeComponent();
         pckrHospital.SelectedIndex = 0;
 
-        doacaoController = new DoacaoController();
-        doadorController = new DoadorController();
+        _doacaoController = new DoacaoController();
+        _doadorController = new DoadorController();
 
-        cpfLogado = Preferences.Get("UsuarioLogado", string.Empty);
-        var doador = doadorController.GetByCpf(cpfLogado);
-        entTipoSanguineo.Text = doador?.TipoSangue ?? "Não informado";
+        // Obtém CPF logado (sem formatação)
+        _cpfLogado = Preferences.Get("UsuarioLogado", string.Empty);
+
+        // Carrega dados do doador
+        CarregarDadosDoador();
+    }
+
+    private void CarregarDadosDoador()
+    {
+        var doador = _doadorController.GetByCpf(_cpfLogado);
+        if (doador == null)
+        {
+            DisplayAlert("Erro", "Doador não encontrado", "OK");
+            return;
+        }
+
+        entTipoSanguineo.Text = doador.TipoSangue ?? "Não informado";
     }
 
     private async void btnDoar_Clicked(object sender, EventArgs e)
     {
-        if (dpDataDoacao.Date == null || pckrHospital.SelectedIndex == -1)
-        {
-            await DisplayAlert("Erro", "Preencha todos os campos", "OK");
+        // Validação básica dos campos
+        if (!ValidarCampos())
             return;
-        }
 
-        var doador = doadorController.GetByCpf(cpfLogado);
+        var doador = _doadorController.GetByCpf(_cpfLogado);
         if (doador == null)
         {
             await DisplayAlert("Erro", "Doador não encontrado", "OK");
             return;
         }
-        var dataSelecionada = dpDataDoacao.Date;
-        var dataAtual = DateTime.Today;
 
-        if (dataSelecionada > dataAtual)
-        {
-            await DisplayAlert("Erro", "A data da doação não pode ser no futuro", "OK");
+        var dataSelecionada = dpDataDoacao.Date;
+
+        // Validação da data
+        if (!ValidarDataDoacao(dataSelecionada))
             return;
+
+        // Verificação do intervalo entre doações
+        if (!ValidarIntervaloDoacoes(doador.Id, dataSelecionada))
+            return;
+
+        // Registra a nova doação
+        await RegistrarNovaDoacao(doador.Id, dataSelecionada);
+    }
+
+    private bool ValidarCampos()
+    {
+        if (dpDataDoacao.Date == null || pckrHospital.SelectedIndex == -1)
+        {
+            DisplayAlert("Erro", "Preencha todos os campos", "OK");
+            return false;
         }
-        var ultimaDoacao = doacaoController.ObterUltimaDoacao(doador.Id);
+        return true;
+    }
+
+    private bool ValidarDataDoacao(DateTime dataSelecionada)
+    {
+        if (dataSelecionada > DateTime.Today)
+        {
+            DisplayAlert("Erro", "A data da doação não pode ser no futuro", "OK");
+            return false;
+        }
+        return true;
+    }
+
+    private bool ValidarIntervaloDoacoes(int doadorId, DateTime dataSelecionada)
+    {
+        var ultimaDoacao = _doacaoController.ObterUltimaDoacao(doadorId);
+
         if (ultimaDoacao != null)
         {
             var dataProximaDoacaoPermitida = ultimaDoacao.DataDoacao.AddMonths(6);
@@ -55,23 +97,26 @@ public partial class pgCadDoacao : ContentPage
                              $"Última doação: {ultimaDoacao.DataDoacao:dd/MM/yyyy}\n" +
                              $"Próxima doação permitida: {dataProximaDoacaoPermitida:dd/MM/yyyy}";
 
-                await DisplayAlert("Atenção", mensagem, "OK");
-                return;
+                DisplayAlert("Atenção", mensagem, "OK");
+                return false;
             }
         }
+        return true;
+    }
 
+    private async Task RegistrarNovaDoacao(int doadorId, DateTime dataDoacao)
+    {
         var novaDoacao = new Doacao
         {
-            DoadorId = doador.Id,
+            DoadorId = doadorId,
             Hospital = pckrHospital.SelectedItem.ToString(),
-            DataDoacao = dpDataDoacao.Date
+            DataDoacao = dataDoacao
         };
 
-        if (doacaoController.RegistrarDoacao(novaDoacao))
+        if (_doacaoController.RegistrarDoacao(novaDoacao))
         {
             await DisplayAlert("Sucesso", "Doação registrada com sucesso!", "OK");
             dpDataDoacao.Date = DateTime.Today;
-
             await Shell.Current.GoToAsync("//pgPrincipal");
         }
         else

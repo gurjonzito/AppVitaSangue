@@ -70,6 +70,15 @@ public partial class pgConfig : ContentPage
 
     private async void Sair_Tapped(object sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync("//pgLogin");
+        bool confirmacao = await DisplayAlert(
+            "Confirmação",
+            "Deseja realmente sair da aplicação?",
+            "Sim", "Não");
+
+        if (confirmacao)
+        {
+            Preferences.Remove("UsuarioLogado");
+            await Shell.Current.GoToAsync("//pgLogin", true);
+        }
     }
 }

@@ -8,16 +8,4 @@ public partial class pgPrincipal : ContentPage
 	{
 		InitializeComponent();
 	}
-
-    private void btnPerfil_Clicked(object sender, EventArgs e)
-    {
-        Doador doador = new Doador();
-
-        Application.Current.MainPage.Navigation.PushAsync(new pgPerfil(doador));
-    }
-
-    private void btnConfig_Clicked(object sender, EventArgs e)
-    {
-        Application.Current.MainPage.Navigation.PushAsync(new pgConfig());
-    }
 }

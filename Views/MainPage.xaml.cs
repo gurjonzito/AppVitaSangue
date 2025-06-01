@@ -8,14 +8,14 @@
             InitializeComponent();
         }
 
-        private void btnSerDoador_Clicked(object sender, EventArgs e)
+        private async void btnSerDoador_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage.Navigation.PushAsync(new pgCadDoador());
+            await Navigation.PushAsync(new pgCadDoador());
         }
 
-        private void btnJaSouDoador_Clicked(object sender, EventArgs e)
+        private async void btnJaSouDoador_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage.Navigation.PushAsync(new pgLogin());
+            await Navigation.PushAsync(new pgLogin());
         }
     }
 
