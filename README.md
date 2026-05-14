@@ -25,7 +25,7 @@
 </details>
 
 ## About
-This is a project made for the Object-Oriented Programming class based on a dental clinic.
+This is a project made for the Mobile Programming class, an application for blood donation.
 
 ## Built with
 
@@ -43,11 +43,11 @@ This is a project made for the Object-Oriented Programming class based on a dent
     </td>
     <td align="center">
       <img src="./assets/feed.png" width="250"/><br>
-      <b>Cadastro</b>
+      <b>Feed</b>
     </td>
     <td align="center">
       <img src="./assets/perfil.png" width="250"/><br>
-      <b>Perfil</b>
+      <b>Profile</b>
     </td>
   </tr>
 </table>
