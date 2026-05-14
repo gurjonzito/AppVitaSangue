@@ -13,10 +13,6 @@
 
 </p>
 
-<h1 align="center">
-    <img alt="VitaSangue" title="#VitaSangue" src="https://i.imgur.com/20EqWlq.png"/>
-</h1>
-
 <details>
   <summary>Table of contents</summary>
   <ol>
@@ -34,14 +30,27 @@ This is a project made for the Object-Oriented Programming class based on a dent
 ## Built with
 
 * [![Visual Studio][Visual Studio]][Visual Studio-url]
-* [![.Net][.Net]][.Net-url]
+* [![.NET MAUI][.NET MAUI]][.NET MAUI-url]
 * [![C#][C#]][C#-url]
 * [![SQL-Server][SQL-Server]][SQL-Server-url]
 
 ## Screenshots
-<img alt="Home" title="#Home" src="https://i.imgur.com/ZKCMkh3.png"/>
-<img alt="Register" title="#Register" src="https://i.imgur.com/6nsX3Yl.png"/>
-<img alt="Select" title="#Select" src="https://i.imgur.com/OPhUaO2.png"/>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./assets/home.png" width="250"/><br>
+      <b>Home</b>
+    </td>
+    <td align="center">
+      <img src="./assets/feed.png" width="250"/><br>
+      <b>Cadastro</b>
+    </td>
+    <td align="center">
+      <img src="./assets/perfil.png" width="250"/><br>
+      <b>Perfil</b>
+    </td>
+  </tr>
+</table>
 
 ## Development
 ```bash
